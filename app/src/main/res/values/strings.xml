@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ejemplo RecyclerView V</string>
+    <string name="action_settings">Settings</string>
+    <string name="appbar_scrolling_view_behaivor">app</string>
+</resources>
