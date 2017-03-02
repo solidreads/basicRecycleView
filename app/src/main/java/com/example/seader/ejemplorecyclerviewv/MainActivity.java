@@ -3,6 +3,7 @@ package com.example.seader.ejemplorecyclerviewv;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,9 +16,9 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
     RecyclerView recycleView;
     RecyclerView.Adapter adapter;
+    TabLayout tabs;
     String[] Data = new String[]{"Element 1", "Element 2", "Element 3", "Element 4", "Element 5",
             "Element 6", "Element 7"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +28,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        tabs = (TabLayout) findViewById(R.id.tabs);
+        tabs.setTabMode(TabLayout.MODE_FIXED);
+
+        tabs.addTab(tabs.newTab().setText("Tab 1"));
+        tabs.addTab(tabs.newTab().setText("Tab 2"));
+        tabs.addTab(tabs.newTab().setText("Tab 3"));
+        tabs.addTab(tabs.newTab().setText("Tab 4"));
+
         recycleView = (RecyclerView) findViewById(R.id.rv);
         recycleView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         adapter = new RecyclerAdapter(Data);
         recycleView.setAdapter(adapter);
         recycleView.setItemAnimator(new DefaultItemAnimator());
-
-
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
